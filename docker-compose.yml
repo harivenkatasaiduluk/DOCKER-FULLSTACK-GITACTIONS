@@ -3,7 +3,7 @@ services:
     image: mysql:8
     container_name: mysql-db
     environment:
-      MYSQL_ROOT_PASSWORD: root
+      MYSQL_ROOT_PASSWORD: docker
       MYSQL_DATABASE: klumusicdb
     ports:
       - "3307:3306"
@@ -16,7 +16,7 @@ services:
     image: harivenkatasaiduluk/docker-backend-2396:latest
     container_name: springboot
     ports:
-      - "3050:2026"
+      - "2025:2000"
     depends_on:
       - mysqldb
     restart: on-failure
@@ -27,7 +27,7 @@ services:
     image: harivenkatasaiduluk/docker-frontend-2396:latest
     container_name: react
     ports:
-      - "3001:80"
+      - "3000:80"
     depends_on:
       - backend
     restart: on-failure
